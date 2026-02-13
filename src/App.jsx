@@ -1,9 +1,10 @@
 import {useState, useMemo, useEffect} from "react";
+// eslint-disable-next-line no-unused-vars
 import {motion, AnimatePresence} from "framer-motion";
 import {products} from "./data/products";
 import ProductCard from "./components/ProductCard";
 
-const phoneNumber = "54911XXXXXXXX";
+const phoneNumber = "5491162625807";
 
 export default function App() {
   const [search, setSearch] = useState("");
@@ -44,7 +45,7 @@ export default function App() {
       <div className="min-h-screen bg-neutral-50 dark:bg-neutral-900 transition-colors duration-300">
         <div className="max-w-md mx-auto px-4 py-8">
           <div className="flex justify-between items-center mb-6">
-            <h1 className="text-xl font-semibold dark:text-white">
+            <h1 className="text-2xl font-semibold dark:text-white">
               Venta por mudanza
             </h1>
 

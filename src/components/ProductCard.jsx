@@ -1,13 +1,22 @@
 import {useState} from "react";
+// eslint-disable-next-line no-unused-vars
 import {motion} from "framer-motion";
 
-const phoneNumber = "54911XXXXXXXX"; // 👈 TU número real
+const phoneNumber = "5491162625807";
 
 export default function ProductCard({product}) {
   const [open, setOpen] = useState(false);
 
   const message = encodeURIComponent(
-    `Hola! Me interesa el artículo: ${product.name}`,
+    `Hola! 👋
+
+Estoy interesada en:
+
+🛍️ ${product.name}
+📝 ${product.description}
+💲 $${product.price.toLocaleString("es-AR")}
+
+¿Sigue disponible? 😊`,
   );
 
   return (
@@ -51,7 +60,7 @@ export default function ProductCard({product}) {
               href={`https://wa.me/${phoneNumber}?text=${message}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="block w-full text-center bg-emerald-500 text-white py-3 rounded-2xl hover:bg-emerald-600 transition"
+              className="block w-full text-center bg-blue-500 text-white py-3 rounded-2xl hover:bg-blue-600 transition"
             >
               Consultar
             </a>
