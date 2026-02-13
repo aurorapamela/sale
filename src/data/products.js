@@ -1,0 +1,32 @@
+export const products = [
+  {
+    id: 1,
+    name: "Heladera",
+    price: 250000,
+    description: "Heladera Electrolux",
+    image: "/assets/mesa.jpg",
+    category: "Electrodoméstico",
+    status: "available",
+    offer: false,
+  },
+  {
+    id: 2,
+    name: "Lavarropas",
+    price: 235000,
+    description: "Lavarropas Drean.",
+    image: "/assets/silla.jpg",
+    category: "Electrodoméstico",
+    status: "available",
+    offer: false,
+  },
+  {
+    id: 3,
+    name: "Violoncello",
+    price: 1500000,
+    description: "Violoncello Cremona 4/4",
+    image: "/assets/silla.jpg",
+    category: "Instrumento",
+    status: "available",
+    offer: false,
+  },
+];
