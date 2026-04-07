@@ -10,7 +10,7 @@ export default function ProductCard({product, view}) {
   const message = encodeURIComponent(
     `Hola! 👋
 
-Estoy interesada en:
+Me interesa:
 
 🛍️ ${product.name}
 📝 ${product.description}
@@ -22,9 +22,11 @@ Estoy interesada en:
   const isList = view === "list";
   const isCompact = view === "compact";
 
-  const images = product.images || [
-    `${import.meta.env.BASE_URL}${product.image}`,
-  ];
+  const images = Array.isArray(product.images)
+    ? product.images
+    : Array.isArray(product.image)
+      ? product.image
+      : [`${import.meta.env.BASE_URL}${product.image}`];
 
   return (
     <>
@@ -47,17 +49,30 @@ Estoy interesada en:
             setOpen(true);
           }}
         >
-          <div className="aspect-square w-full">
+          <div className="aspect-square w-full relative">
             <img
               src={images[currentImage]}
               alt={product.name}
               className={`w-full h-full object-cover ${
                 isList ? "" : "rounded-xl"
-              }`}
+              } ${product.status === "sold" ? "opacity-90" : ""}`}
             />
+
+            {/* Overlay + tag SOLD */}
+            {product.status === "sold" && (
+              <div className="absolute inset-0 flex items-center justify-center">
+                {/* fondo suave */}
+                <div className="absolute inset-0 bg-white/40 dark:bg-black/40 rounded-xl" />
+
+                {/* pill */}
+                <span className="relative z-10 border border-red-500 text-red-500 px-4 py-1 rounded-full text-xs uppercase tracking-widest bg-white dark:bg-black">
+                  Vendido
+                </span>
+              </div>
+            )}
           </div>
 
-          {product.offer && (
+          {product.status !== "sold" && product.offer && (
             <span className="absolute top-3 right-3 border border-black dark:border-white text-xs px-2 py-1 uppercase tracking-widest bg-white dark:bg-black">
               Oferta
             </span>
@@ -81,6 +96,12 @@ Estoy interesada en:
             </p>
           )}
 
+          {!isCompact && (
+            <p className="text-sm text-red-700 dark:text-white/60">
+              {product.descriptionAdditional}
+            </p>
+          )}
+
           <p className="font-semibold text-black dark:text-white">
             ${product.price.toLocaleString("es-AR")}
           </p>
@@ -94,6 +115,11 @@ Estoy interesada en:
             >
               Consultar
             </a>
+          )}
+          {product.status === "sold" && (
+            <p className="font-semibold text-red-500 dark:text-white">
+              Vendido
+            </p>
           )}
         </div>
       </motion.div>
