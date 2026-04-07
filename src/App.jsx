@@ -7,7 +7,6 @@ import {LayoutGrid, List, Grid2X2, Sun, Moon} from "lucide-react";
 const phoneNumber = "5491162625807";
 
 export default function App() {
-  const [search, setSearch] = useState("");
   const [category, setCategory] = useState("Todos");
   const [dark, setDark] = useState(false);
   const [view, setView] = useState("cards"); // cards | list | compact
@@ -32,16 +31,12 @@ export default function App() {
 
   const filteredProducts = useMemo(() => {
     return products.filter((product) => {
-      const matchSearch = product.name
-        .toLowerCase()
-        .includes(search.toLowerCase());
-
       const matchCategory =
         category === "Todos" || product.category === category;
 
-      return matchSearch && matchCategory;
+      return matchCategory;
     });
-  }, [search, category]);
+  }, [category]);
 
   const globalMessage = encodeURIComponent(
     "Hola! Estoy viendo tu página de venta por mudanza 😊",
@@ -106,17 +101,6 @@ export default function App() {
               }`}
             >
               <LayoutGrid size={20} />
-            </button>
-
-            <button
-              onClick={() => setView("list")}
-              className={`p-2 rounded-full transition ${
-                view === "list"
-                  ? "bg-black text-white dark:bg-white dark:text-black"
-                  : "text-black/40 dark:text-white/40"
-              }`}
-            >
-              <List size={20} />
             </button>
 
             <button

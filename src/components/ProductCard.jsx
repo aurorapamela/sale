@@ -58,13 +58,21 @@ Me interesa:
               } ${product.status === "sold" ? "opacity-90" : ""}`}
             />
 
-            {/* Overlay + tag SOLD */}
+            {images.length > 1 && (
+              <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1">
+                {images.map((_, i) => (
+                  <span
+                    key={i}
+                    className="w-1.5 h-1.5 rounded-full bg-black/30 dark:bg-white/30"
+                  />
+                ))}
+              </div>
+            )}
+
             {product.status === "sold" && (
               <div className="absolute inset-0 flex items-center justify-center">
-                {/* fondo suave */}
                 <div className="absolute inset-0 bg-white/40 dark:bg-black/40 rounded-xl" />
 
-                {/* pill */}
                 <span className="relative z-10 border border-red-500 text-red-500 px-4 py-1 rounded-full text-xs uppercase tracking-widest bg-white dark:bg-black">
                   Vendido
                 </span>
