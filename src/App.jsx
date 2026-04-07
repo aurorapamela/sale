@@ -52,9 +52,14 @@ export default function App() {
       <div className="max-w-md mx-auto px-4 py-8">
         <div className="max-w-md mx-auto px-4 py-8">
           <div className="flex justify-between items-center mb-6">
-            <h1 className="text-3xl font-semibold dark:text-white">
-              Venta por mudanza
-            </h1>
+            <div>
+              <h1 className="text-3xl font-semibold dark:text-white mb-2">
+                Venta por mudanza
+              </h1>
+              <h5 className="text-md font-regular text-gray-500 dark:text-red-300 mb-2">
+                Se retira por Vega San Martín
+              </h5>
+            </div>
             <button
               onClick={() => setDark(!dark)}
               className="
@@ -74,22 +79,12 @@ export default function App() {
             </button>
           </div>
 
-          <motion.input
-            initial={{opacity: 0}}
-            animate={{opacity: 1}}
-            type="text"
-            placeholder="Buscar artículo..."
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-            className="w-full mb-4 px-4 py-3 rounded-2xl border border-black/20 dark:border-white/20 bg-white dark:bg-black dark:text-white focus:outline-none"
-          />
-
-          <div className="flex gap-2 overflow-x-auto mb-4 pb-2">
+          <div className="flex flex-wrap gap-2 mb-4 pb-2">
             {categories.map((cat) => (
               <button
                 key={cat}
                 onClick={() => setCategory(cat)}
-                className={`px-2.5 py-0.5 rounded-full text-[11px] tracking-wide whitespace-nowrap transition
+                className={`px-2.5 py-0.5 rounded-full text-[11px] tracking-wide transition
     ${
       category === cat
         ? "bg-black text-white dark:bg-white dark:text-black"

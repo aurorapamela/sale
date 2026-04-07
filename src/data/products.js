@@ -4,7 +4,8 @@ export const products = [
     name: "Heladera",
     price: 200000,
     description: "Heladera Electrolux",
-    descriptionAdditional: "Se entrega entre el 23/4 y el 27/4.",
+    descriptionAdditional:
+      "Usado, actualmente en funcionamiento. Antigüedad: 10 años. Se entrega entre el 23/4 y el 27/4.",
     image: [
       `${import.meta.env.BASE_URL}assets/heladera-1.jpeg`,
       `${import.meta.env.BASE_URL}assets/heladera-2.jpeg`,
@@ -42,8 +43,9 @@ export const products = [
     id: 4,
     name: "Colchón y Sommier Simmons",
     price: 300000,
-    description: "Colchón y Sommier Simmons",
-    descriptionAdditional: "Se entrega entre el 23/4 y el 27/4.",
+    description: "Colchón y Sommier Simmons Back Therapy.",
+    descriptionAdditional:
+      "Usado. Buen estado. Se entrega entre el 23/4 y el 27/4.",
     images: [
       `${import.meta.env.BASE_URL}assets/colchon-2.png`,
       `${import.meta.env.BASE_URL}assets/colchon-1.jpeg`,
@@ -59,7 +61,7 @@ export const products = [
     price: 650000,
     description: "Cortadora de Pasto Dibra C70nhxt Motor Honda Gcvx 200",
     descriptionAdditional:
-      "Imagen Ilustrativa del modelo. Se entrega entre el 23/4 y el 27/4.",
+      "Imagen Ilustrativa del modelo. Perfecto estado. Antigüedad: 2 años. Se entrega entre el 23/4 y el 27/4.",
     images: [`${import.meta.env.BASE_URL}assets/cortadora-1.jpeg`],
     category: "Jardín",
     status: "available",
@@ -70,9 +72,10 @@ export const products = [
     name: "Generador",
     price: 200000,
     description: "Generador Hyundai HYH960A 800 W",
-    descriptionAdditional: "Imagen Ilustrativa del modelo. Entrega inmediata.",
+    descriptionAdditional:
+      "Imagen Ilustrativa del modelo. Perfecto estado. Antigüedad: 2 años. Entrega inmediata.",
     images: [`${import.meta.env.BASE_URL}assets/generador-1.jpeg`],
-    category: "Jardín",
+    category: "Herramientas",
     status: "available",
     offer: false,
   },

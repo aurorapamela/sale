@@ -97,7 +97,7 @@ Me interesa:
           )}
 
           {!isCompact && (
-            <p className="text-sm text-red-700 dark:text-white/60">
+            <p className="text-sm text-red-700 dark:text-red-400">
               {product.descriptionAdditional}
             </p>
           )}
@@ -117,7 +117,7 @@ Me interesa:
             </a>
           )}
           {product.status === "sold" && (
-            <p className="font-semibold text-red-500 dark:text-white">
+            <p className="font-semibold text-red-500 dark:text-red-400">
               Vendido
             </p>
           )}
