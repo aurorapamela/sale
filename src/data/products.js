@@ -45,7 +45,7 @@ export const products = [
     price: 300000,
     description: "Colchón y Sommier Simmons Back Therapy.",
     descriptionAdditional:
-      "Usado. Buen estado. Se entrega entre el 23/4 y el 27/4.",
+      "Usado. Buen estado. Antigüedad: 10 años Se entrega entre el 23/4 y el 27/4.",
     images: [
       `${import.meta.env.BASE_URL}assets/colchon-2.png`,
       `${import.meta.env.BASE_URL}assets/colchon-1.jpeg`,
