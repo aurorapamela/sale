@@ -76,7 +76,7 @@ export const products = [
       "Imagen Ilustrativa del modelo. Perfecto estado. Antigüedad: 2 años. Entrega inmediata.",
     images: [`${import.meta.env.BASE_URL}assets/generador-1.jpeg`],
     category: "Herramientas",
-    status: "available",
+    status: "on-hold",
     offer: false,
   },
 ];

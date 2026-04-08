@@ -55,7 +55,7 @@ Me interesa:
               alt={product.name}
               className={`w-full h-full object-cover ${
                 isList ? "" : "rounded-xl"
-              } ${product.status === "sold" ? "opacity-90" : ""}`}
+              } ${product.status === "sold" || product.status === "on-hold" ? "opacity-90" : ""}`}
             />
 
             {images.length > 1 && (
@@ -75,6 +75,15 @@ Me interesa:
 
                 <span className="relative z-10 border border-red-500 text-red-500 px-4 py-1 rounded-full text-xs uppercase tracking-widest bg-white dark:bg-black">
                   Vendido
+                </span>
+              </div>
+            )}
+            {product.status === "on-hold" && (
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="absolute inset-0 bg-white/40 dark:bg-black/40 rounded-xl" />
+
+                <span className="relative z-10 border border-red-500 text-red-500 px-4 py-1 rounded-full text-xs uppercase tracking-widest bg-white dark:bg-black">
+                  Reservado
                 </span>
               </div>
             )}
@@ -114,19 +123,26 @@ Me interesa:
             ${product.price.toLocaleString("es-AR")}
           </p>
 
-          {!isCompact && product.status !== "sold" && (
-            <a
-              href={`https://wa.me/${phoneNumber}?text=${message}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block w-full text-center border border-black dark:border-white py-2 rounded-full hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition duration-300 text-sm"
-            >
-              Consultar
-            </a>
-          )}
+          {!isCompact &&
+            product.status !== "sold" &&
+            product.status !== "on-hold" && (
+              <a
+                href={`https://wa.me/${phoneNumber}?text=${message}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block w-full text-center border border-black dark:border-white py-2 rounded-full hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition duration-300 text-sm"
+              >
+                Consultar
+              </a>
+            )}
           {product.status === "sold" && (
             <p className="font-semibold text-red-500 dark:text-red-400">
               Vendido
+            </p>
+          )}
+          {product.status === "on-hold" && (
+            <p className="font-semibold text-red-500 dark:text-red-400">
+              Reservado
             </p>
           )}
         </div>
